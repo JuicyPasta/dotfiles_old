@@ -1,0 +1,340 @@
+" Vundle init
+set nocompatible
+filetype off
+
+set rtp+=~/dotfiles/vim/bundle/Vundle.vim
+call vundle#begin('~/dotfiles/vim/bundle')
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-commentary'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'terryma/vim-expand-region'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'tpope/vim-afterimage'
+Plugin 'tpope/vim-jdaddy'
+
+call vundle#end()
+
+"""""""""""""""""""""""""""""
+" General Keyboard Mappings "
+"""""""""""""""""""""""""""""
+
+inoremap jk <ESC>
+
+" your new leader
+let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
+
+" F7 reindents the entire file
+map <F7> mzgg=G`z
+
+" highlight last inserted text
+nnoremap gV `[v`]
+
+" quickly save
+nmap <leader>w :w!<cr>
+
+" common mistake fix
+map q: :q
+
+" toggles line numbers
+nmap <leader>ln :set nu!<cr>
+
+" easier split pane navigations
+"nnoremap <C-J> <C-W><C-J>
+"nnoremap <C-K> <C-W><C-K>
+"nnoremap <C-L> <C-W><C-L>
+"nnoremap <C-H> <C-W><C-H>
+
+" jump to end of line you pasted
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
+" press * and # to search words visually selected
+vnoremap <silent> * :call VisualSelection('f')<CR>
+vnoremap <silent> # :call VisualSelection('b')<CR>
+
+" Return to last edit position when opening files
+autocmd BufReadPost *
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
+
+" Remember info about open buffers on close
+set viminfo^=%
+
+" copy/paste fix
+set clipboard=unnamed
+
+
+"""""""""""""""""""
+" Plugin settings "
+"""""""""""""""""""
+
+
+""" vim-tmux-navigator """
+
+" TODO: define regions
+" https://github.com/christoomey/vim-tmux-navigator
+let g:tmux_navigator_no_mappings = 0
+
+" vim-expand-region
+" https://github.com/terryma/vim-expand-region
+" help expand-region
+
+" press v to expand, ctrl-v to shrink
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+
+""" NERDTree """
+
+
+" for help type: :help NERD_tree.txt
+
+map <C-n> :NERDTreeToggle<CR>
+
+" Open NERDTree if no files are specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Closes vim if the only thing open is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Changes the default arrows
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+
+""" Syntastic """
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+
+""" Easymotion """
+
+" use easy motion instead of default searching
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+map <leader>. <Plug>(easymotion-repeat)
+
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+
+" uses vims casing
+let g:EasyMotion_smartcase = 1
+
+" v will match with V, but V will only match with V
+let g:EasyMotion_use_smartsign_us = 1 " US layout
+
+
+""" ctrl-p """
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+
+""" powerline """
+
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+set laststatus=2
+
+
+""" commentary """
+
+" to add comment support
+" autocmd FileType apache setlocal commentstring=#\ %s
+
+
+"""""""""""""""""""
+" Behavior Tweaks "
+"""""""""""""""""""
+
+" Add a bit extra margin to the left
+set foldcolumn=1 
+
+" Sets how many lines of history VIM has to remember
+set history=500 
+
+" Sets tabs and indentation to be 4 spaces
+set tabstop=4
+set shiftwidth=4
+
+" tabs are spaces
+set expandtab
+set smarttab
+set lbr
+set tw=500
+set ai
+set si
+set wrap
+
+" make backspace normal
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" Set to auto read when a file is changed from the outside
+set autoread 
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" Ignore case when searching
+set ignorecase 
+
+" When searching try to be smart about cases
+set smartcase 
+
+" Highlight search results
+set hlsearch 
+
+" Makes search act like search in modern browsers
+set incsearch 
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw 
+
+" For regular expressions turn magic on
+set magic 
+
+" Show matching brackets when text indicator is over them
+set showmatch 
+
+" How many tenths of a second to blink when matching brackets
+set mat=2 
+
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
+
+" Avoid garbled characters in Chinese language windows OS
+let $LANG='en'
+set langmenu=en
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+if has("win16") || has("win32")
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+else
+    set wildignore+=.git\*,.hg\*,.svn\*
+endif
+
+" split panes like you read books
+set splitbelow
+set splitright
+
+" we dont really need backups
+set nobackup
+set nowb
+set noswapfile
+
+" deletes trailing white space when you save
+func! DeleteTrailingWS()
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
+
+" no more automatic comment inserting
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+            
+
+"""""""""""""
+" UI Config "
+"""""""""""""
+
+" shows line numbers
+set nonumber 
+
+" show command in bottom bar
+set showcmd 
+
+" highlights current line
+set cursorline 
+
+" autocomplete for command menu
+set wildmenu 
+
+" only redraw when necessary
+set lazyredraw 
+
+" highlight matching {}
+set showmatch 
+
+" search as characters are entered
+set incsearch 
+
+" highlight matches
+set hlsearch 
+
+syntax on
+set encoding=utf-8
+
+" Height of the command bar
+set cmdheight=1
+
+" short for 'showmode'
+set nosmd   
+
+" short for 'ruler'
+set noru    
+
+" A buffer becomes hidden when it is abandoned
+set hid
+
+if has("gui_running")
+    set guioptions-=T
+    set guioptions+=e
+    set t_Co=256
+    set guitablabel=%M\ %t
+endif
+
+" enables syntax processing
+syntax enable 
+
+" solarized fix for OSX
+if !has("gui_running")
+    let g:solarized_termtrans=1
+    let g:solarized_termcolors=256
+endif
+
+" enable solarized
+colorscheme solarized
+set background=dark

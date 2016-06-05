@@ -1,0 +1,32 @@
+#ALIASES
+alias ta="tmux attach -t"
+alias ts="tmux switch -t"
+alias tn="tmux new -s"
+alias tinfo="tmux info"
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+
+alias ll='ls -alFG'
+alias la='ls -AG'
+alias l='ls -CFG'
+alias ls='ls -G'
+
+alias gc='git commit'
+alias gp='git push'
+alias gl='git log'
+alias gs='git status'
+
+#CONSTANTS
+export PATH="/usr/local/sbin:$PATH:."
+export EDITOR="/usr/bin/vim"
+export PORT="3000"
+export SECURE_PORT="3001"
+export EDITOR='vim'
+
+set -o emacs
