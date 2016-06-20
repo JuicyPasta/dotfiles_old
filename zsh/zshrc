@@ -88,6 +88,7 @@ source $ZSH/oh-my-zsh.sh
 
 #INCLUDE ALIASES
 . ~/dotfiles/bash/aliases
+. ~/dotfiles/bash/work_aliases
 
 eval $(thefuck --alias)
 fancy-ctrl-z () {
@@ -103,4 +104,3 @@ zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
 export NVM_DIR="/Users/jackson/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

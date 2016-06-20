@@ -17,10 +17,11 @@ alias la='ls -AG'
 alias l='ls -CFG'
 alias ls='ls -G'
 
-alias gc='git commit'
-alias gp='git push'
-alias gl='git log'
+alias g='git'
 alias gs='git status'
+alias gch='git checkout'
+alias gca='git cache'
+alias gm='git merge --squash'
 
 #CONSTANTS
 export PATH="/usr/local/sbin:$PATH:."
@@ -30,3 +31,4 @@ export SECURE_PORT="3001"
 export EDITOR='vim'
 
 set -o emacs
+
