@@ -1,7 +1,6 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-
 # GENERAL CONFIG 
 export HISTCONTROL=ignoredups:ignorespace #dont put duplicate history
 export HISTSIZE=1000
@@ -9,33 +8,14 @@ export HISTFILESIZE=2000
 shopt -s histappend #append to history, dont overwrite
 shopt -s checkwinsize #check window size after each command, update lines & cols if needed
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome 2> /dev/null"
-
 #INCLUDE ALIAS FILE
 . ~/dotfiles/bash/aliases
 . ~/dotfiles/bash/work_aliases
-export PATH="/apollo/env/SDETools/bin:$PATH"
+export PATH="$PATH"
 
 #COLORS AND PS1
 export CLICOLORS=1
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
-
-if [ "$(uname)" == "Darwin" ]; then 
-    source "`brew --prefix grc`/etc/grc.bashrc"
-fi
 
 # Reset
 Color_Off="\[\033[0m\]"       # Text Reset

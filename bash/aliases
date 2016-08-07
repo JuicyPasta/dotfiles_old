@@ -12,10 +12,10 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 
-alias ll='ls -alFG'
-alias la='ls -AG'
-alias l='ls -CFG'
-alias ls='ls -G'
+alias ll='ls -al'
+alias la='ls -a'
+alias l='ls'
+alias ls='ls'
 
 alias g='git'
 alias gs='git status'
@@ -29,6 +29,7 @@ export EDITOR="/usr/bin/vim"
 export PORT="3000"
 export SECURE_PORT="3001"
 export EDITOR='vim'
+export DEFAULT_CHEAT_DIR='~/Dropbox/.cheat'
 
 set -o emacs
 
