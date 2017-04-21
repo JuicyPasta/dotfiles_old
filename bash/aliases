@@ -26,10 +26,8 @@ alias gm='git merge --squash'
 #CONSTANTS
 export PATH="/usr/local/sbin:$PATH:."
 export EDITOR="/usr/bin/vim"
-export PORT="3000"
-export SECURE_PORT="3001"
 export EDITOR='vim'
-export DEFAULT_CHEAT_DIR='~/Dropbox/.cheat'
+export DEFAULT_CHEAT_DIR='~/dotfiles/.cheat'
 
 set -o emacs
 

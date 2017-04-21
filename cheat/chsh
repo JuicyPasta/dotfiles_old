@@ -1,0 +1,2 @@
+# Change to fish
+sudo chsh jackson -s /usr/bin/fish

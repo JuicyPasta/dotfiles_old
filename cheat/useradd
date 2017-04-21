@@ -1,0 +1,2 @@
+# Create user with home folder
+useradd -m <username>
