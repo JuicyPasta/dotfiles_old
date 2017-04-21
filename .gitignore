@@ -1,5 +1,6 @@
 .DS_Store
 work_aliases
 
-vim/bundle/
+bundle
+vim/bundle
 tmux/plugins/

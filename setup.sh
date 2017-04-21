@@ -14,3 +14,5 @@ ln -f -s ~/dotfiles/bash/bashrc ~/.bashrc
 ln -f -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf 
 git clone https://github.com/tmux-plugins/tpm ~/dotfiles/tmux/plugins/tpm
 tmux source-file ~/.tmux.conf  
+
+ln -f -s ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
