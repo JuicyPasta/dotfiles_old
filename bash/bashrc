@@ -1,1 +1,8 @@
-export EDITOR=vim
+. ~/dotfiles/bash/work_aliases
+. ~/dotfiles/bash/aliases
+
+export PATH="/usr/local/sbin:$PATH:."
+export EDITOR="/usr/bin/vim"
+export DEFAULT_CHEAT_DIR='~/dotfiles/.cheat'
+
+set -o emacs

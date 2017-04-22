@@ -1,6 +1,8 @@
 #!/bin/sh
 
 ln -f -s ~/dotfiles/vim/vimrc ~/.vimrc 
+ln -f -s ~/dotfiles/vim/ideavimrc ~/.ideavimrc 
+
 git clone https://github.com/VundleVim/Vundle.vim ~/dotfiles/vim/bundle/Vundle.vim
 vim +PluginInstall +qall 
 

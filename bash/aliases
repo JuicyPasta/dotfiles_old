@@ -24,10 +24,6 @@ alias gca='git cache'
 alias gm='git merge --squash'
 
 #CONSTANTS
-export PATH="/usr/local/sbin:$PATH:."
-export EDITOR="/usr/bin/vim"
-export EDITOR='vim'
-export DEFAULT_CHEAT_DIR='~/dotfiles/.cheat'
 
 set -o emacs
 
