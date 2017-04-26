@@ -23,7 +23,3 @@ alias gch='git checkout'
 alias gca='git cache'
 alias gm='git merge --squash'
 
-#CONSTANTS
-
-set -o emacs
-

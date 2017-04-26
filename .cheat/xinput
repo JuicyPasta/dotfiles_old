@@ -1,0 +1,12 @@
+Manage different x devices
+
+https://wiki.archlinux.org/index.php/Touchpad_Synaptics#Using_the_driver.27s_automatic_palm_detection
+
+config files:
+/usr/share/X11/xorg.conf.d/70...
+/etc/X11/xorg.conf.d/...
+
+xinput list
+xinput list-props "SynPS/2 Synaptics TouchPad" | grep Capabilities
+
+

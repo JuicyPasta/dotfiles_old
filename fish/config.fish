@@ -7,5 +7,3 @@ set -gx PATH $PATH .
 
 set -gx DEFAULT_CHEAT_DIR ~/dotfiles/.cheat
 set -gx EDITOR /usr/bin/vim
-
-set -o emacs

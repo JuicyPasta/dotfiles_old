@@ -1,0 +1,49 @@
+# To implement a for loop:
+for file in *;
+do 
+    echo $file found;
+done
+
+# To implement a case command:
+case "$1"
+in
+    0) echo "zero found";;
+    1) echo "one found";;
+    2) echo "two found";;
+    3*) echo "something beginning with 3 found";;
+esac
+
+# if statement
+if [ condition ]; then # SPACES IMPORTANT
+        ...
+else (optional)
+
+fi
+
+# conditions...
+[-a FILE] file exists
+[-d FILE] file exists & is directory
+[STRING1 == STRING2] NOTE: regular expressions may be used for strings
+[arg1 OP arg2] OP can be -eq -ne -lt -gt -le -ge
+
+# example
+if [ $VARIABLE -eq "1" ]; ...
+
+# alternative to if statements 
+test "$()" == "1" && ...
+
+# last exit status
+$?
+
+# Turn on debugging:
+set -x
+
+# Turn off debugging:
+set +x
+
+# Retrieve N-th piped command exit status
+printf 'foo' | fgrep 'foo' | sed 's/foo/bar/'
+echo ${PIPESTATUS[0]}  # replace 0 with N
+
+# Lock file:
+( set -o noclobber; echo > my.lock ) || echo 'Failed to create lock file'
