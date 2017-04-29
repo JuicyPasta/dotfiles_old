@@ -7,10 +7,10 @@ fi
 
 
 HOST="jacksons-desktop"
-HOST_STATUS=$(dig HOST | grep NOERROR | wc -l)
+HOST_STATUS=$(dig $HOST | grep NOERROR | wc -l)
 
-if [ "$HOST_STATUS" -eq "1" ]; then
-    /usr/local/src/synergy-v1.8.8-stable-c30301e-Source/bin/synergyc --enable-crypto -n jacksons-laptop --restart --daemon $1
+if [ $HOST_STATUS -eq "1" ]; then
+    /usr/local/src/synergy-v1.8.8-stable-c30301e-Source/bin/synergyc --enable-crypto -n jacksons-laptop --restart --daemon $HOST
     notify-send "jacksons-desktop found, synergy daemon started"
 
 else

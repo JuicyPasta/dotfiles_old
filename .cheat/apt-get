@@ -1,0 +1,16 @@
+# Desc: Allows to update the operating system
+
+# Add PPA
+apt-add-respository ppa:yubico/stable
+
+# Download a package without installing it. (The package will be downloaded in your current working dir)
+apt-get download modsecurity-crs
+
+# Change Cache dir and archive dir (where .deb are stored).
+apt-get -o Dir::Cache="/path/to/destination/dir/" -o Dir::Cache::archives="./" install ...
+
+# Show apt-get installed packages.
+grep 'install ' /var/log/dpkg.log
+
+# Silently keep old configuration during batch updates
+apt-get update -o DPkg::Options::='--force-confold' ...
