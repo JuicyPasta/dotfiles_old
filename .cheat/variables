@@ -1,0 +1,2 @@
+#set fish variable
+set -gx PATH /opt/qt/Tools/QtCreator/bin /opt/qt/5.0.0/gcc_64/bin $PATH

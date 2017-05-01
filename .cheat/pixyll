@@ -1,1 +1,4 @@
 jekyll serve --watch
+
+# kramdown syntax
+https://kramdown.gettalong.org/syntax.html

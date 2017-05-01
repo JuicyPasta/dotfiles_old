@@ -1,0 +1,9 @@
+/etc/fstab
+
+#for cryptswap
+/etc/crypttab
+
+
+# to fix slow boot
+change uuid of swap to sudo blkid
+

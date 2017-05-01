@@ -1,0 +1,7 @@
+# add to kernel boot paramater
+
+sudo vim /etc/default/grub
+
+edit the GRUB_CMDLINE_LINUX_DEFAULT="quiet splash whatever.asdf=asdf"
+
+sudo update-grub
